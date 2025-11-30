@@ -5,7 +5,7 @@
   background-image: var(--cover-image);
   background-position: center;
   background-attachment: fixed;
-  padding: var(--padding-page);
+  padding-inline: var(--padding-page);
   display: grid;
   gap: calc(20px + (var(--padding-page) * 2));
 }
@@ -15,8 +15,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr min-content 1fr;
-  height: calc(100vh - 2 * var(--padding-page));
-  margin-block-end: var(--padding-page);
+  height: 100vh;
 }
 
 .decorated-zone::before {
@@ -27,7 +26,7 @@
   border-left: 1px solid var(--light-accent-color);
   border-bottom: 1px solid var(--light-accent-color);
   left: 0;
-  bottom: 0;
+  bottom: var(--padding-page);
 }
 
 .decorated-zone::after {
@@ -37,7 +36,7 @@
   height: 25px;
   border-top: 1px solid var(--light-accent-color);
   border-right: 1px solid var(--light-accent-color);
-  top: 0;
+  top: var(--padding-page);
   right: 0;
 }
 
@@ -187,8 +186,7 @@
 
 .footer {
   position: relative;
-  height: calc(100vh - 2 * var(--padding-page));
-  margin-block-start: var(--padding-page);
+  height: 100vh;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
