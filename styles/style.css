@@ -5,7 +5,6 @@
   background-image: var(--cover-image);
   background-position: center;
   background-attachment: fixed;
-  padding-inline: var(--padding-page);
   display: grid;
   gap: calc(20px + (var(--padding-page) * 2));
 }
@@ -16,6 +15,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr min-content 1fr;
   height: 100vh;
+  margin-inline: var(--padding-page);
 }
 
 .decorated-zone::before {
@@ -42,7 +42,7 @@
 
 .element_REC {
   position: absolute;
-  top: 0;
+  top: var(--padding-page);
   right: 9px;
   display: var(--element_REC-display);
   gap: 9px;
@@ -126,6 +126,7 @@
 .main {
   display: grid;
   gap: calc((var(--padding-page) * 3) + 20px); /* при 10 -> 50 , при 20 -> 80 */
+  margin-inline: var(--padding-page);
 }
 
 .main-text_section {
@@ -190,6 +191,7 @@
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
+  margin-inline: var(--padding-page);
 }
 
 .footer_title {
@@ -215,7 +217,7 @@
   }
 
   .main-text_section {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
   }
 
   .main-text_section:nth-child(2) {
@@ -227,12 +229,12 @@
   }
 
   .main-text_section:nth-child(2n + 1) .main-text_section-list {
-    grid-column: 2 / 4;
+    grid-column: 2 / 3;
   }
 
   .main-text_section:nth-child(2) .main-text_section-list {
     grid-row: 2;
-    grid-column: 1 / 4;
+    grid-column: 1 / 3;
   }
 
   .gallery {
