@@ -2,4 +2,284 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-image: var(--cover-image);
+  background-position: center;
+  background-attachment: fixed;
+  padding: var(--padding-page);
+  display: grid;
+  gap: calc(20px + (var(--padding-page) * 2));
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content 1fr;
+  height: calc(100vh - 2 * var(--padding-page));
+  margin-block-end: var(--padding-page);
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute; /*применил тут абсолютное позиш. но в иснтрукция говорилось что оно уместно только для надписи REC*/
+  width: 25px;
+  height: 25px;
+  border-left: 1px solid var(--light-accent-color);
+  border-bottom: 1px solid var(--light-accent-color);
+  left: 0;
+  bottom: 0;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute; /*применил тут абсолютное позиш. но в иснтрукция говорилось что оно уместно только для надписи REC*/
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--light-accent-color);
+  border-right: 1px solid var(--light-accent-color);
+  top: 0;
+  right: 0;
+}
+
+.element_REC {
+  position: absolute;
+  top: 0;
+  right: 9px;
+  display: var(--element_REC-display);
+  gap: 9px;
+  align-items: center;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: 25px;
+  color: var(--accent-color);
+}
+
+.element_REC::after {
+  content: "";
+  display: block; /* поставил потому что без него не ставятся размерно. но возможно можно и другим способом*/
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  color: var(--light-accent-color);
+  line-height: 18px;
+  padding-inline: 13px;
+  block-size: 23px;
+  display: grid; /*почему то ставит надпись кнопки по центру*/
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--light-accent-color);
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--btn_border-transparency);
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-bottom: 1px solid var(--light-accent-color);
+}
+
+.big_title {
+  /* Для мобильных */
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  color: var(--big_title-color);
+  line-height: 83%;
+  align-self: center;
+}
+
+.header__theme-title {
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__theme-text {
+  inline-size: clamp(355px, 50%, 491px);
+  justify-self: end;
+  align-self: center;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--title_decor-color);
+  block-size: min-content;
+  font-weight: bold;
+}
+
+.main {
+  display: grid;
+  gap: calc((var(--padding-page) * 3) + 20px); /* при 10 -> 50 , при 20 -> 80 */
+}
+
+.main-text_section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.main-text_section-title {
+  color: var(--light-accent-color);
+}
+
+.main-text_section-list {
+  display: grid;
+  gap: 20px;
+}
+
+.main-text_section:nth-child(3) li:has(.text) .title-decor {
+  font-weight: normal;
+}
+
+.text {
+  color: var(--text-color);
+  margin-block-start: 10px;
+}
+
+.text_link {
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.text_link:hover {
+  text-decoration: underline;
+}
+
+.text_link:focus {
+  outline: 1px solid var(--text-color);
+}
+
+.main-image_section {
+  display: grid;
+  gap: var(--padding-page);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, min-content);
+  gap: var(--padding-page);
+}
+
+.gallery img {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  block-size: 100%;
+  max-block-size: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  position: relative;
+  height: calc(100vh - 2 * var(--padding-page));
+  margin-block-start: var(--padding-page);
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+.footer_title {
+  text-shadow: 2px 2px 0 var(--accent-color);
+  justify-self: center;
+}
+
+
+/* Адаптивность */
+
+@media (width >= 768px) {
+  :root {
+    --padding-page: 20px;
+  }
+
+  .big_title {
+    /* Для планшета и десктопа */
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__theme-title {
+    margin-inline-start: calc(-1 * var(--padding-page));
+  }
+
+  .main-text_section {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .main-text_section:nth-child(2) {
+    grid-template-rows: min-content 1fr;
+  }
+
+  .main-text_section-title {
+    grid-column: 1;
+  }
+
+  .main-text_section:nth-child(2n + 1) .main-text_section-list {
+    grid-column: 2 / 4;
+  }
+
+  .main-text_section:nth-child(2) .main-text_section-list {
+    grid-row: 2;
+    grid-column: 1 / 4;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, min-content);
+  }
+
+  .gallery img:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .gallery img:nth-child(2) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+  }
+
+  .gallery img:nth-child(3) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+  }
+
+  .gallery img:nth-child(4) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .gallery img:nth-child(5) {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+  }
+
+  .main-text_section:nth-child(2) .main-text_section-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

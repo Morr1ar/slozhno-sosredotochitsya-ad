@@ -2,3 +2,18 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+:root {
+  --cover-image: url("/images/cover-image-dark.png");
+  --accent-color: rgba(255, 0, 112, 1);
+  --big_title-color: rgba(219, 0, 255, 1);
+  --text-color: rgba(241, 178, 206, 1);
+  --title_decor-color: rgba(0, 0, 40, 1);
+  --light-accent-color: rgba(255, 0, 112, 1);
+  --element_REC-display: flex;
+  --btn_border-transparency: rgba(255, 0, 112, 0.4);
+
+  --padding-page: 10px;
+  --font-family: 'IBM Plex mono', sans-serif;
+  --font-size: 18px;
+  --plain_text-line-height: 23.4px;
+}

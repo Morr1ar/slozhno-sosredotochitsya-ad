@@ -20,6 +20,9 @@ h5,
 h6,
 p {
   margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--plain_text-line-height);
 }
 
 ul {
@@ -36,7 +39,9 @@ picture {
 button,
 a {
   color: currentColor;
-  font-family: inherit;
-  font-size: inherit;
   line-height: inherit;
+
+  border: none;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
 }
